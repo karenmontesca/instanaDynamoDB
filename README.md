@@ -49,7 +49,7 @@ $ cd dynamopoc
 Usuario@EQUIPO-WW MINGW64 /d/pruebas/dynamopoc
 $ ls
  crear-bucket.yaml          function.zip               
- imgDoc.docx                package.json
+ package.json               img
  README.md                  index.js                   
  lambda-dynamodb-poc.yaml   response.json
 ```
@@ -104,18 +104,7 @@ aws cloudformation describe-stacks \
   --output text
 ```
 
-## Troubleshooting
 
-#### Error. In case there is an error in our deployment, we can use this command to look at the detail of the error
-
-```bash
-aws cloudformation describe-stack-events --stack-name LambdaDynamoDBPOCStack
-```
-#### Delete. Eliminate the stack if there was a failed deployment
-
-```bash
-aws cloudformation delete-stack --stack-name LambdaDynamoDBPOCStack
-```
 https://fo7gp40och.execute-api.us-east-1.amazonaws.com/prod/
 
 ### Step 3. Providing IAM permissions to our EC2 instance
@@ -130,9 +119,35 @@ We click "Roles" on the left navigation bar. Then, we click the button "Create R
 ![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole2.jpg "IAMRole")
 
 13. Then we select the permissions to include in this role:
+- CloudWatchReadOnlyAccess
+- AmazonDynamoDBReadOnlyAccess
+
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole3.jpg "CloudWatchReadOnlyAccess & AmazonDynamoDBReadOnlyAccess")
+
+14. Finally, we name our role. *I'm naming mine "InstanaDynamoDBMonitorRole".*
+
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole4.jpg "Name")
+
+15. After we click create, we wait until we receive the confirmation that the role has been created succesfully.
+
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole5.jpg "Success")
+
+15. On the search bar of AWS we look for EC2, in the main dashboard, we locate our newly created EC2 instance. We select the box next to the name of our new EC2 instance. Then, on the right, we locate and click the **Actions** button. A drop down menu will appear, here, we click on **Security** and then **Modify IAM role**
+
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole7.jpg "Modify IAM role")
 
 
 
+
+## Troubleshooting
+#### Error. In case there is an error in our deployment, we can use this command to look at the detail of the error
+```bash
+aws cloudformation describe-stack-events --stack-name LambdaDynamoDBPOCStack
+```
+#### Delete. Eliminate the stack if there was a failed deployment
+```bash
+aws cloudformation delete-stack --stack-name LambdaDynamoDBPOCStack
+```
 
 ls /opt/instana/agent/etc/instana/
 sudo nano /opt/instana/agent/etc/instana/configuration.yml
