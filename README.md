@@ -142,11 +142,22 @@ We click "Roles" on the left navigation bar. Then, we click the button "Create R
 
 ### Step 4. Deploying or Instana Agent/Sensor
 
-20. To begin, we shall go into our instana console. There, on the left, we have our nativation pane. Here we search and click on **Settings** and then **Agents**.
+20. To begin, we shall go into our instana console. There, on the left, we have our navigation pane. Here we search and click on **Settings** and then **Agents**.
 
 ![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/instana1.jpg "Instana")
 
+21. We will see  our Agent dashboard now. We immediately click on **Install agents**
 
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/instana2.jpg "Instana")
+
+22. We search for AWS in the search bar. And we select **Instana AWS sensor"
+
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/instana3.jpg "Instana")
+
+23. We then copy the commant shown on step 2. This code has our agent-key and our endpoint.
+We copy this.
+
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/instana4.jpg "Instana")
 
 
 ## Troubleshooting
