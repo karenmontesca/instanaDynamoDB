@@ -108,33 +108,37 @@ aws cloudformation describe-stacks \
 https://fo7gp40och.execute-api.us-east-1.amazonaws.com/prod/
 
 ### Step 3. Providing IAM permissions to our EC2 instance
-11. Log into AWS and go to this address:
+12. Log into AWS and go to this address:
 https://console.aws.amazon.com/iam/
 We click "Roles" on the left navigation bar. Then, we click the button "Create Role" on the top right.
 
 ![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole1.jpg "IAMRole")
 
-12. We select AWS Service as the entity type. For the use case, we select EC2.
+13. We select AWS Service as the entity type. For the use case, we select EC2.
 
 ![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole2.jpg "IAMRole")
 
-13. Then we select the permissions to include in this role:
+14. Then we select the permissions to include in this role:
 - CloudWatchReadOnlyAccess
 - AmazonDynamoDBReadOnlyAccess
 
 ![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole3.jpg "CloudWatchReadOnlyAccess & AmazonDynamoDBReadOnlyAccess")
 
-14. Finally, we name our role. *I'm naming mine "InstanaDynamoDBMonitorRole".*
+15. Finally, we name our role. *I'm naming mine "InstanaDynamoDBMonitorRole".*
 
 ![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole4.jpg "Name")
 
-15. After we click create, we wait until we receive the confirmation that the role has been created succesfully.
+16. After we click create, we wait until we receive the confirmation that the role has been created succesfully.
 
 ![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole5.jpg "Success")
 
-15. On the search bar of AWS we look for EC2, in the main dashboard, we locate our newly created EC2 instance. We select the box next to the name of our new EC2 instance. Then, on the right, we locate and click the **Actions** button. A drop down menu will appear, here, we click on **Security** and then **Modify IAM role**
+17. On the search bar of AWS we look for EC2. We go to the EC2 dashboard, there we locate our newly created EC2 instance. We select the box next to the name of our new EC2 instance. Then, on the right, we locate and click the **Actions** button. A drop down menu will appear, here we click on **Security** and then **Modify IAM role**
 
 ![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole7.jpg "Modify IAM role")
+
+18. On the drop down menu, we select our newly created role and click "Update IAM role"
+
+19. Ok, I think we are ready to deploy our Instana agent.
 
 
 
