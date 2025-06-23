@@ -1,11 +1,20 @@
 # I. Introduction
 The objetive today is to try and monitor, with Instana, a demo DynamoDB in AWS.
 
-**Important**: If our DynamoDB is in aws-region "A", our EC2 will have to be in aws-region "A" aswell. If there are many DynamoDBs in different regions, an instana agent should be deployed for each region .
+> ⚠️ **Important:**  
+> If your DynamoDB table is in AWS region `"A"`, the EC2 instance running the Instana agent **must also be in region "A"**.  
+> If there are DynamoDB tables in multiple regions, an Instana agent **must be deployed in each region**.
 
 There are more manual ways to develop the environment we will work with today, but I have tried to do this with cloudformation so it's faster to deploy and obtain a working environment, as fast and as easily as possible.
 
-This project has a lambda function, the handler is called "index.js". After you clone this repository, you will see the handler, a package.json, and 2 YAML files called "lambda-dynamodb-poc-yaml" and "crear-bucket", don't panic! These YAML will create the rest of our project.
+After cloning this repository, you will find:
+- 📄 **index.js** — Lambda function handler.
+- 📦 **package.json** — Node.js project dependencies.
+- 📝 **lambda-dynamodb-poc.yaml** — CloudFormation template for Lambda and DynamoDB.
+- 📝 **crear-bucket.yaml** — CloudFormation template for creating an S3 bucket.
+
+> ⚠️ **Don't panic!** These YAML files will automatically set up everything you need.
+
 
 # II. Procedure
 ### Step 0. Downloading the repository
@@ -122,4 +131,10 @@ We click "Roles" on the left navigation bar. Then, we click the button "Create R
 
 ![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole3.jpg "CloudWatchReadOnlyAccess & AmazonDynamoDBReadOnlyAccess")
 
+ls /opt/instana/agent/etc/instana/
+sudo nano /opt/instana/agent/etc/instana/configuration.yml
+sudo systemctl status instana-agent
+ctrl + O
+Enter
+Ctrl + X
 
