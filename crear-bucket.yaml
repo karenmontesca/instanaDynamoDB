@@ -1,0 +1,5 @@
+Resources:
+  LambdaCodeBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: lambda-code-poc-235494811373-us-east-1
