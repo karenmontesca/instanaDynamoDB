@@ -138,6 +138,9 @@ We click "Roles" on the left navigation bar. Then, we click the button "Create R
 
 18. On the drop down menu, we select our newly created role and click "Update IAM role"
 
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole6.jpg "Modify IAM role")
+
+
 19. Ok, I think we are ready to deploy our Instana agent.
 
 ### Step 4. Deploying or Instana Agent/Sensor
