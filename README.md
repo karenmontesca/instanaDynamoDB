@@ -140,6 +140,12 @@ We click "Roles" on the left navigation bar. Then, we click the button "Create R
 
 19. Ok, I think we are ready to deploy our Instana agent.
 
+### Step 4. Deploying or Instana Agent/Sensor
+
+20. To begin, we shall go into our instana console. There, on the left, we have our nativation pane. Here we search and click on **Settings** and then **Agents**.
+
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/instana1.jpg "Instana")
+
 
 
 
