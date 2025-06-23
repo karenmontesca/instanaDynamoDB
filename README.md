@@ -33,7 +33,7 @@ $ cd pruebas
 3. Once having accessed the root folder, clone this repository (hi! that's me)
 
 ```bash
-git clone http://aquiponemoselrepositorio.com
+git clone https://github.com/karenmontesca/instanaDynamoDB
 ```
 
 4. When it finishes downloading, you will notice a new folder called "DYNAMOPOC" (aka the root folder of our project), that is the project we will be working with today. Now we just have to access it. In this example, we will do that this way:
