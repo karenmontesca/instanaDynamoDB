@@ -158,7 +158,9 @@ We click "Roles" on the left navigation bar. Then, we click the button "Create R
 ![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/instana3.jpg "Instana")
 
 23. We then copy the command shown on step 2. This code has our agent-key and our endpoint.
-We copy this whole thing. I put "dynamic" in red. Why, you ask. Well, you can chose here if you want your agent to be dynamic or static. You could change the text to 'static' if you wish your agent not to update automatically.
+We copy this whole thing. 
+
+I put "dynamic" in red. "Why?", you ask. The moment has come for you to chose if you want your agent to be dynamic or static. You could change the text to 'static' if you wish your agent not to update automatically.
 
 ![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/instana4.jpg "Instana")
 
