@@ -48,16 +48,16 @@ $ cd dynamopoc
 
 Usuario@EQUIPO-WW MINGW64 /d/pruebas/dynamopoc
 $ ls
- crear-bucket.yaml   function.zip               node_modules/
-'docu dynam.docx'    imgDoc.docx                package-lock.json
- documentacion.md    index.js                   package.json
- documentacion.sh    lambda-dynamodb-poc.yaml   response.json
+ crear-bucket.yaml          function.zip               
+ imgDoc.docx                package.json
+ README.md                  index.js                   
+ lambda-dynamodb-poc.yaml   response.json
 ```
 ### Step 1. Installing dependencies and zipping our package
 5. You're doing great! Let's keep going. Now we must install the dependencies so our lambda actually works. I already created the project from scratch with npm init -y, so you don't have to. Just follow my lead by copying the following command. Remember we are in the root folder of our project.
 
 ```bash
-npm install @aws-sdk/client-dynamodb
+npm install #I have already added the @aws-sdk/client-dynamodb to the package.json
 ```
 
 6. Next, we will open our folder on windows. Three different new things just appeared, just confirm they are there: one folder called "node_modules", and a file called "package-lock.json". 
@@ -66,6 +66,8 @@ So now, we take the following files and folders, and put them into a zip file ca
 - package-lock.json
 - pakage.json
 - node_modules
+
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/zippear1.jpg "Zip")
 
 7. Once it's zipped, we are ready for the next step.
 
@@ -129,7 +131,8 @@ We click "Roles" on the left navigation bar. Then, we click the button "Create R
 
 13. Then we select the permissions to include in this role:
 
-![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole3.jpg "CloudWatchReadOnlyAccess & AmazonDynamoDBReadOnlyAccess")
+
+
 
 ls /opt/instana/agent/etc/instana/
 sudo nano /opt/instana/agent/etc/instana/configuration.yml
