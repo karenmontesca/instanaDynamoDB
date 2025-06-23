@@ -112,14 +112,14 @@ https://fo7gp40och.execute-api.us-east-1.amazonaws.com/prod/
 https://console.aws.amazon.com/iam/
 We click "Roles" on the left navigation bar. Then, we click the button "Create Role" on the top right.
 
-![alt text](https://github.com/karenmontesca/img/IAMRole1.jpg "IAMRole")
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole1.jpg "IAMRole")
 
 12. We select AWS Service as the entity type. For the use case, we select EC2.
 
-![alt text](https://github.com/karenmontesca/img/IAMRole2.jpg "IAMRole")
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole2.jpg "IAMRole")
 
 13. Then we select the permissions to include in this role:
 
-![alt text](https://github.com/karenmontesca/img/IAMRole3.jpg "CloudWatchReadOnlyAccess & AmazonDynamoDBReadOnlyAccess")
+![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/IAMRole3.jpg "CloudWatchReadOnlyAccess & AmazonDynamoDBReadOnlyAccess")
 
 
