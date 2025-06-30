@@ -15,6 +15,10 @@ After cloning this repository, you will find:
 
 > ⚠️ **Don't panic!** These YAML files will automatically set up everything you need.
 
+## Ingredients:
+1. NodeJS: https://nodejs.org/es/download
+2. AWS CLI: https://awscli.amazonaws.com/AWSCLIV2.msi
+3. gitBash: https://git-scm.com/downloads
 
 # II. Procedure
 ### Step 0. Downloading the repository
@@ -36,28 +40,30 @@ $ cd pruebas
 git clone https://github.com/karenmontesca/instanaDynamoDB
 ```
 
-4. When it finishes downloading, you will notice a new folder called "DYNAMOPOC" (aka the root folder of our project), that is the project we will be working with today. Now we just have to access it. In this example, we will do that this way:
+4. When it finishes downloading, you will notice a new folder called "instanaDynamoDB" (aka the root folder of our project), that is the project we will be working with today. Now we just have to access it. In this example, we will do that this way:
 
 ```bash
 Usuario@EQUIPO-WW MINGW64 /d/pruebas
-$ ls                #it's like dir in DOS
-dynamopoc/          #this is the new folder that we just cloned
+ls                  #it's like dir in DOS
+
+#instanaDynamoDB/    #this is the new folder that we just cloned
 
 Usuario@EQUIPO-WW MINGW64 /d/pruebas
-$ cd dynamopoc
+cd instanaDynamoDB
 
-Usuario@EQUIPO-WW MINGW64 /d/pruebas/dynamopoc
-$ ls
- crear-bucket.yaml          function.zip               
- package.json               img
- README.md                  index.js                   
- lambda-dynamodb-poc.yaml   response.json
+Usuario@EQUIPO-WW MINGW64 /d/pruebas/instanaDynamoDB
+ls
+
+# crear-bucket.yaml          function.zip               
+# package.json               img
+# README.md                  index.js                   
+# lambda-dynamodb-poc.yaml   response.json
 ```
 ### Step 1. Installing dependencies and zipping our package
-5. You're doing great! Let's keep going. Now we must install the dependencies so our lambda actually works. I already created the project from scratch with npm init -y, so you don't have to. Just follow my lead by copying the following command. Remember we are in the root folder of our project.
+5. You're doing great! Let's keep going. Now we must install the dependencies so our lambda actually works. I already created the project from scratch with npm init -y, so you don't have to. Just follow my lead by copying the following command. Remember we are in the root folder of our project.[Also remember to have nodejs already installed]
 
 ```bash
-npm install #I have already added the @aws-sdk/client-dynamodb to the package.json
+npm install # I have already added the @aws-sdk/client-dynamodb to the package.json
 ```
 
 6. Next, we will open our folder on windows. Three different new things just appeared, just confirm they are there: one folder called "node_modules", and a file called "package-lock.json". 
@@ -73,13 +79,13 @@ So now, we take the following files and folders, and put them into a zip file ca
 
 ### Step 2. Creating our stack in AWS
 
-8. The next few steps are easy. Just copy and paste what I have very kindly prepared for you today. However, in case you make any mistake, I have also provided some commands for you to paste so you can start all over again.
+8. The next few steps are easy. Just copy and paste what I have very kindly prepared for you today. However, in case you make any mistake, I have also provided some commands for you to paste so you can start all over again [Troubleshooting](#Troubleshooting). Also, if you get the following message: **"You must specify a region. You can also configure your region by running "aws configure"** , please go to the [Configuring AWS Region](#Configuring-AWS-Region) part of this tutorial. 
 
-9. With this command we create the bucket we will upload and keep our "function.zip" in:
+9. With the following command we create the bucket we will upload and keep our "function.zip" in:
 
 ```bash
 # Create bucket
-$ aws cloudformation deploy \
+aws cloudformation deploy \
   --template-file crear-bucket.yaml \
   --stack-name LambdaCodeBucketStack
 
@@ -164,21 +170,58 @@ I put "dynamic" in red. "Why?", you ask. The moment has come for you to chose if
 
 ![alt text](https://github.com/karenmontesca/instanaDynamoDB/blob/master/img/instana4.jpg "Instana")
 
+24. Connect to your EC2 and paste the installation command
+
+25. When the installation has finished, go into the instana folder to find out confoguration.yaml
+```bash
+ls /opt/instana/agent/etc/instana/
+sudo nano /opt/instana/agent/etc/instana/configuration.yml
+```
+
+25. Here, we un-comment the dynamoDB sensor
+
+26. We save and exit
+ctrl + O
+Enter
+Ctrl + X
+
+26. Let's restart the agent and check the status
+sudo systemctl status instana-agent
+
+# Extras
 
 ## Troubleshooting
 #### Error. In case there is an error in our deployment, we can use this command to look at the detail of the error
 ```bash
 aws cloudformation describe-stack-events --stack-name LambdaDynamoDBPOCStack
 ```
-#### Delete. Eliminate the stack if there was a failed deployment
+
+#### Delete DynamoDB, Lambda and API gateway. Eliminate the stack if there was a failed deployment
 ```bash
 aws cloudformation delete-stack --stack-name LambdaDynamoDBPOCStack
 ```
 
-ls /opt/instana/agent/etc/instana/
-sudo nano /opt/instana/agent/etc/instana/configuration.yml
-sudo systemctl status instana-agent
-ctrl + O
-Enter
-Ctrl + X
+#### Delete bucket stack . Eliminate the stack if there was a failed deployment
+```bash
+aws cloudformation delete-stack --stack-name LambdaCodeBucketStack
+```
 
+
+
+
+
+
+
+
+
+## Configuring AWS Region
+So you got this message, "You must specify a region. Not to worry. 
+You configure your region by running "aws configure" with gitBash. Just make sure you have your Access and Secret Key on hand! [Getting an Acess and Secret Key](#Getting-an-Access-and-Secret-Key)
+
+```bash
+aws configure
+```
+
+## Getting an Access and Secret Key
+
+Create EC2 instance
